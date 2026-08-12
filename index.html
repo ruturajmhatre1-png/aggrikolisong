@@ -1,16 +1,1067 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="mr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>आगरी कोळी गीत | Aagri Koli Songs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>एकवीरा आई | Ekveera Aai — Karla Hill Temple</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rozha+One&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon-deep:#2c0910;
+    --maroon:#5c0f1a;
+    --temple-red:#8c1c2b;
+    --saffron:#e8622c;
+    --marigold:#f2b134;
+    --turmeric:#e0a72b;
+    --cream:#f7ead0;
+    --smoke:rgba(247,234,208,0.5);
+    --glass:rgba(60,15,20,0.35);
+    --glass-border:rgba(242,177,52,0.35);
+  }
 
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--maroon-deep);
+    color:var(--cream);
+    overflow-x:hidden;
+    min-height:100vh;
+    position:relative;
+  }
+
+  ::selection{background:var(--marigold);color:var(--maroon-deep);}
+
+  /* ---------- BACKGROUND ---------- */
+  .sky{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+      radial-gradient(ellipse 120% 60% at 50% 0%, #4a1420 0%, transparent 55%),
+      linear-gradient(180deg, #1a0509 0%, #2c0910 25%, #4a1420 50%, #6e2118 72%, #8c3a1c 90%, #a2551f 100%);
+  }
+
+  .stars{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    opacity:0.7;
+  }
+  .star{
+    position:absolute;
+    width:2px;height:2px;
+    background:var(--cream);
+    border-radius:50%;
+    animation:twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:0.15;}
+    50%{opacity:0.9;}
+  }
+
+  .hillline{
+    position:fixed;
+    bottom:0; left:0; width:100%;
+    z-index:-2;
+    filter:drop-shadow(0 -4px 30px rgba(0,0,0,0.4));
+  }
+
+  .textile-pattern{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:0.05;
+    background-image:
+      repeating-linear-gradient(45deg, var(--marigold) 0, var(--marigold) 1px, transparent 1px, transparent 26px),
+      repeating-linear-gradient(-45deg, var(--marigold) 0, var(--marigold) 1px, transparent 1px, transparent 26px);
+    pointer-events:none;
+  }
+
+  .vignette{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background:radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(10,3,4,0.55) 100%);
+  }
+
+  /* floating diya embers */
+  .embers{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .ember{
+    position:absolute;
+    bottom:-10px;
+    width:5px;height:5px;
+    border-radius:50%;
+    background:radial-gradient(circle, #ffdca0 0%, #f2b134 45%, transparent 80%);
+    box-shadow:0 0 8px 2px rgba(242,177,52,0.6);
+    animation:rise linear infinite;
+  }
+  @keyframes rise{
+    0%{transform:translateY(0) translateX(0) scale(1); opacity:0;}
+    10%{opacity:1;}
+    90%{opacity:0.8;}
+    100%{transform:translateY(-105vh) translateX(var(--drift,20px)) scale(0.3); opacity:0;}
+  }
+
+  /* marigold garland borders */
+  .garland{
+    position:fixed;
+    top:0; left:0; width:100%;
+    height:34px;
+    z-index:5;
+    pointer-events:none;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+    margin:0 auto;
+    padding:70px 24px 210px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .eyebrow{
+    font-family:'Poppins',sans-serif;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    font-size:0.68rem;
+    color:var(--marigold);
+    opacity:0.85;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before,.eyebrow::after{
+    content:'';
+    width:26px;height:1px;
+    background:linear-gradient(90deg, transparent, var(--marigold));
+  }
+  .eyebrow::after{background:linear-gradient(90deg, var(--marigold), transparent);}
+
+  .devanagari-title{
+    font-family:'Yatra One', cursive;
+    font-size:clamp(3.2rem, 10vw, 6.4rem);
+    line-height:1.05;
+    color:var(--cream);
+    text-shadow:0 0 40px rgba(232,98,44,0.5), 0 4px 0 rgba(0,0,0,0.3);
+    background:linear-gradient(180deg, #fff2d6 10%, var(--marigold) 60%, var(--saffron) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:glow 4s ease-in-out infinite;
+  }
+  @keyframes glow{
+    0%,100%{filter:drop-shadow(0 0 18px rgba(242,177,52,0.35));}
+    50%{filter:drop-shadow(0 0 34px rgba(232,98,44,0.55));}
+  }
+
+  .eng-title{
+    font-family:'Rozha One', serif;
+    font-size:clamp(1rem, 2.6vw, 1.5rem);
+    letter-spacing:0.12em;
+    color:var(--cream);
+    opacity:0.88;
+    margin-top:10px;
+  }
+
+  .tagline{
+    margin-top:22px;
+    font-size:clamp(0.95rem, 1.6vw, 1.1rem);
+    font-style:italic;
+    font-family:'Tiro Devanagari Marathi','Poppins',serif;
+    color:var(--cream);
+    opacity:0.85;
+    max-width:560px;
+    line-height:1.7;
+  }
+
+  /* ---------- CENTRAL SHRINE VISUAL ---------- */
+  .shrine{
+    position:relative;
+    margin:56px 0 30px;
+    width:min(92vw, 420px);
+    aspect-ratio:1/1.05;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+  }
+
+  .shrine svg{width:100%;height:100%;overflow:visible;}
+
+  .bell-hint{
+    position:absolute;
+    bottom:-6px;
+    font-size:0.68rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--marigold);
+    opacity:0.7;
+    animation:pulseHint 2.4s ease-in-out infinite;
+  }
+  @keyframes pulseHint{
+    0%,100%{opacity:0.45;}
+    50%{opacity:0.85;}
+  }
+
+  .ring-wave{
+    position:absolute;
+    border:2px solid var(--marigold);
+    border-radius:50%;
+    opacity:0;
+    pointer-events:none;
+  }
+  .ring-wave.active{
+    animation:ripple 0.9s ease-out;
+  }
+  @keyframes ripple{
+    0%{width:40px;height:40px;opacity:0.9;}
+    100%{width:340px;height:340px;opacity:0;}
+  }
+
+  .petal{
+    position:fixed;
+    top:-20px;
+    z-index:6;
+    pointer-events:none;
+    font-size:16px;
+    animation:fall linear forwards;
+  }
+  @keyframes fall{
+    to{transform:translateY(110vh) rotate(400deg); opacity:0.2;}
+  }
+
+  /* ---------- DETAIL BADGES ---------- */
+  .badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+    max-width:680px;
+    margin-top:8px;
+  }
+  .badge{
+    padding:8px 16px;
+    font-size:0.74rem;
+    letter-spacing:0.04em;
+    border:1px solid var(--glass-border);
+    background:var(--glass);
+    backdrop-filter:blur(6px);
+    border-radius:999px;
+    color:var(--cream);
+    opacity:0.9;
+    transition:all 0.3s ease;
+  }
+  .badge:hover{
+    background:rgba(232,98,44,0.25);
+    border-color:var(--marigold);
+    transform:translateY(-2px);
+  }
+  .badge .dot{
+    display:inline-block;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--marigold);
+    margin-right:7px;
+    box-shadow:0 0 6px var(--marigold);
+  }
+
+  /* ---------- QUOTES ---------- */
+  .quote-box{
+    margin-top:56px;
+    min-height:110px;
+    max-width:640px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .quote-mark{
+    font-family:'Rozha One',serif;
+    font-size:2.6rem;
+    color:var(--saffron);
+    opacity:0.5;
+    line-height:1;
+  }
+  .quote-text{
+    font-family:'Yatra One',cursive;
+    font-size:clamp(1.3rem,3vw,1.8rem);
+    color:var(--cream);
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+    max-width:600px;
+  }
+  .quote-text.show{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .quote-sub{
+    margin-top:10px;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--marigold);
+    opacity:0;
+    transition:opacity 0.8s ease 0.15s;
+  }
+  .quote-sub.show{opacity:0.75;}
+
+  .quote-dots{
+    display:flex;
+    gap:7px;
+    margin-top:22px;
+  }
+  .qdot{
+    width:6px;height:6px;border-radius:50%;
+    background:rgba(247,234,208,0.3);
+    transition:all 0.4s ease;
+  }
+  .qdot.active{
+    background:var(--marigold);
+    box-shadow:0 0 8px var(--marigold);
+    transform:scale(1.3);
+  }
+
+  /* ---------- footnote / memory strip ---------- */
+  .memory-strip{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:14px;
+    width:100%;
+    max-width:760px;
+  }
+  .memory-card{
+    padding:18px 14px;
+    background:linear-gradient(160deg, rgba(140,28,43,0.35), rgba(44,9,16,0.35));
+    border:1px solid rgba(242,177,52,0.18);
+    border-radius:14px;
+    text-align:left;
+    transition:transform 0.35s ease, border-color 0.35s ease;
+  }
+  .memory-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--marigold);
+  }
+  .memory-card .m-icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+  .memory-card .m-title{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--marigold);
+    margin-bottom:4px;
+  }
+  .memory-card .m-text{
+    font-size:0.76rem;
+    line-height:1.5;
+    color:var(--cream);
+    opacity:0.8;
+  }
+
+  /* ---------- MUSIC PLAYER ---------- */
+  .player{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:50;
+    width:min(92vw, 480px);
+    background:rgba(44,9,16,0.55);
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid var(--glass-border);
+    border-radius:20px;
+    padding:14px 18px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .player-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .disc{
+    width:44px;height:44px;
+    border-radius:50%;
+    flex-shrink:0;
+    background:
+      radial-gradient(circle at 50% 50%, var(--maroon-deep) 0 18%, var(--marigold) 19% 22%, var(--maroon-deep) 23% 100%);
+    border:2px solid var(--marigold);
+    position:relative;
+    animation:spin 6s linear infinite;
+    animation-play-state:paused;
+    box-shadow:0 0 14px rgba(242,177,52,0.4);
+  }
+  .disc.spinning{animation-play-state:running;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .track-info{
+    flex:1;
+    min-width:0;
+  }
+  .track-name{
+    font-size:0.82rem;
+    font-weight:500;
+    color:var(--cream);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .track-sub{
+    font-size:0.66rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--marigold);
+    opacity:0.75;
+    margin-top:2px;
+  }
+
+  .controls{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .ctrl-btn{
+    background:transparent;
+    border:1px solid rgba(242,177,52,0.3);
+    color:var(--cream);
+    width:34px;height:34px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:all 0.25s ease;
+    flex-shrink:0;
+  }
+  .ctrl-btn:hover{
+    background:rgba(232,98,44,0.35);
+    border-color:var(--marigold);
+    transform:scale(1.08);
+  }
+  .ctrl-btn.play-pause{
+    width:40px;height:40px;
+    background:var(--saffron);
+    border-color:var(--saffron);
+  }
+  .ctrl-btn.play-pause:hover{
+    background:var(--marigold);
+  }
+  .ctrl-btn svg{width:15px;height:15px;fill:var(--cream);}
+
+  .progress-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .time{
+    font-size:0.62rem;
+    color:var(--cream);
+    opacity:0.65;
+    min-width:32px;
+    text-align:center;
+  }
+  .progress-track{
+    flex:1;
+    height:4px;
+    background:rgba(247,234,208,0.15);
+    border-radius:4px;
+    position:relative;
+    cursor:pointer;
+    overflow:hidden;
+  }
+  .progress-fill{
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:0%;
+    background:linear-gradient(90deg, var(--saffron), var(--marigold));
+    border-radius:4px;
+    transition:width 0.2s linear;
+  }
+
+  .player-note{
+    font-size:0.6rem;
+    text-align:center;
+    color:var(--cream);
+    opacity:0.4;
+    letter-spacing:0.03em;
+  }
+
+  #yt-holder{
+    position:absolute;
+    width:1px;height:1px;
+    overflow:hidden;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  footer.credit{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding-bottom:170px;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    color:var(--cream);
+    opacity:0.4;
+    text-transform:uppercase;
+  }
+
+  @media (max-width:560px){
+    .wrap{padding-top:50px;}
+    .memory-strip{grid-template-columns:1fr 1fr;}
+    .player{padding:12px 14px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sky"></div>
+<div class="stars" id="stars"></div>
+<div class="textile-pattern"></div>
+<div class="vignette"></div>
+<div class="embers" id="embers"></div>
+
+<svg class="hillline" viewBox="0 0 1440 340" preserveAspectRatio="none" style="height:38vh;">
+  <path d="M0,340 L0,210 L120,190 L220,230 L340,150 L420,205 L520,120 L560,160 L640,90 L700,140 L760,60 L800,110 L880,70 L960,150 L1060,110 L1140,180 L1240,140 L1320,200 L1440,170 L1440,340 Z"
+    fill="#1a0508" opacity="0.9"/>
+  <!-- rock cut steps + temple silhouette on hill peak -->
+  <g transform="translate(700,15)" fill="#120306">
+    <rect x="-3" y="30" width="6" height="34"/>
+    <polygon points="0,0 -22,34 22,34"/>
+    <rect x="-30" y="34" width="60" height="8"/>
+    <rect x="-18" y="42" width="8" height="18"/>
+    <rect x="10" y="42" width="8" height="18"/>
+    <circle cx="0" cy="10" r="4" fill="#e8622c" opacity="0.85"/>
+  </g>
+  <!-- step-like terraces echoing Karla rock-cut steps -->
+  <g fill="#150408">
+    <rect x="640" y="66" width="18" height="6"/>
+    <rect x="655" y="72" width="18" height="6"/>
+    <rect x="670" y="78" width="18" height="6"/>
+    <rect x="730" y="66" width="18" height="6"/>
+    <rect x="745" y="72" width="18" height="6"/>
+    <rect x="760" y="78" width="18" height="6"/>
+  </g>
+</svg>
+
+<svg class="garland" viewBox="0 0 1440 34" preserveAspectRatio="none">
+  <g id="garland-g"></g>
+</svg>
+
+<div class="wrap">
+
+  <div class="eyebrow">कर्नाळा टेकडी · कार्ला लेणी</div>
+
+  <h1 class="devanagari-title">एकवीरा आई</h1>
+  <div class="eng-title">EKVEERA AAI &nbsp;·&nbsp; TEMPLE ON THE HILL OF KARLA</div>
+
+  <p class="tagline">आई तुझ्या दारी आलो, कोळी-आगरी मनाचं श्रद्धास्थान.<br>
+  <span style="opacity:0.75;font-size:0.85em;">— the hill goddess who watches over every boat that leaves the shore</span></p>
+
+  <!-- CENTRAL SHRINE VISUAL -->
+  <div class="shrine" id="shrine" tabindex="0" aria-label="Tap or press Enter to ring the temple bell">
+    <svg viewBox="0 0 400 420">
+      <defs>
+        <radialGradient id="haloGrad" cx="50%" cy="38%" r="60%">
+          <stop offset="0%" stop-color="#ffdca0" stop-opacity="0.9"/>
+          <stop offset="45%" stop-color="#f2b134" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#f2b134" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="idolGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe6b0"/>
+          <stop offset="55%" stop-color="#f2b134"/>
+          <stop offset="100%" stop-color="#c9791f"/>
+        </linearGradient>
+        <linearGradient id="sareeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#e8622c"/>
+          <stop offset="100%" stop-color="#8c1c2b"/>
+        </linearGradient>
+      </defs>
+
+      <!-- halo -->
+      <circle cx="200" cy="150" r="150" fill="url(#haloGrad)" id="halo"/>
+
+      <!-- hanging temple bells -->
+      <g id="bellLeft" style="transform-origin:60px 40px;">
+        <line x1="60" y1="0" x2="60" y2="40" stroke="#c9791f" stroke-width="2"/>
+        <path d="M48,40 Q60,32 72,40 L74,66 Q60,76 46,66 Z" fill="url(#idolGrad)" stroke="#8c5314" stroke-width="1"/>
+        <circle cx="60" cy="76" r="3" fill="#8c5314"/>
+      </g>
+      <g id="bellRight" style="transform-origin:340px 40px;">
+        <line x1="340" y1="0" x2="340" y2="40" stroke="#c9791f" stroke-width="2"/>
+        <path d="M328,40 Q340,32 352,40 L354,66 Q340,76 326,66 Z" fill="url(#idolGrad)" stroke="#8c5314" stroke-width="1"/>
+        <circle cx="340" cy="76" r="3" fill="#8c5314"/>
+      </g>
+
+      <!-- arch / shrine niche -->
+      <path d="M90,340 L90,180 Q90,90 200,90 Q310,90 310,180 L310,340 Z" fill="none" stroke="#f2b134" stroke-width="3" opacity="0.55"/>
+      <path d="M105,340 L105,185 Q105,105 200,105 Q295,105 295,185 L295,340 Z" fill="none" stroke="#e8622c" stroke-width="1.5" opacity="0.4"/>
+
+      <!-- idol silhouette: crowned goddess seated -->
+      <g transform="translate(200,235)">
+        <!-- crown -->
+        <path d="M-38,-95 L-30,-125 L-16,-100 L0,-135 L16,-100 L30,-125 L38,-95 Z" fill="url(#idolGrad)" stroke="#8c5314" stroke-width="1.5"/>
+        <circle cx="0" cy="-140" r="6" fill="#e8622c"/>
+        <!-- face -->
+        <ellipse cx="0" cy="-70" rx="30" ry="34" fill="url(#idolGrad)" stroke="#8c5314" stroke-width="1.5"/>
+        <!-- tilak -->
+        <path d="M0,-90 L-5,-78 L5,-78 Z" fill="#8c1c2b"/>
+        <circle cx="0" cy="-72" r="2.4" fill="#8c1c2b"/>
+        <!-- eyes -->
+        <path d="M-14,-72 Q-8,-68 -2,-72" stroke="#5c0f1a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M2,-72 Q8,-68 14,-72" stroke="#5c0f1a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- nose ring (nath) -->
+        <circle cx="9" cy="-58" r="4" fill="none" stroke="#e8622c" stroke-width="1.6"/>
+
+        <!-- torso / saree -->
+        <path d="M-55,60 Q-60,-20 -34,-40 Q0,-58 34,-40 Q60,-20 55,60 Z" fill="url(#sareeGrad)" stroke="#5c0f1a" stroke-width="1.5"/>
+        <!-- saree pattern lines -->
+        <path d="M-40,20 Q0,10 40,20" stroke="#f2b134" stroke-width="1.4" fill="none" opacity="0.6"/>
+        <path d="M-45,45 Q0,33 45,45" stroke="#f2b134" stroke-width="1.4" fill="none" opacity="0.6"/>
+        <!-- garland -->
+        <path d="M-24,-30 Q0,10 24,-30" stroke="#e8622c" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <path d="M-24,-30 Q0,10 24,-30" stroke="#f2b134" stroke-width="2" fill="none" stroke-dasharray="3 4"/>
+
+        <!-- four arms suggestion -->
+        <path d="M-55,-10 Q-80,-20 -86,-45" stroke="url(#idolGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M55,-10 Q80,-20 86,-45" stroke="url(#idolGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M-52,20 Q-72,40 -68,64" stroke="url(#idolGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M52,20 Q72,40 68,64" stroke="url(#idolGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <!-- trishul in upper right hand -->
+        <g transform="translate(86,-50)">
+          <line x1="0" y1="0" x2="0" y2="-46" stroke="#c9791f" stroke-width="2.4"/>
+          <path d="M0,-46 L-9,-58 M0,-46 L0,-60 M0,-46 L9,-58" stroke="#f2b134" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        </g>
+      </g>
+
+      <!-- base steps -->
+      <rect x="70" y="340" width="260" height="12" rx="2" fill="#c9791f" opacity="0.8"/>
+      <rect x="86" y="352" width="228" height="10" rx="2" fill="#8c5314" opacity="0.7"/>
+
+      <!-- diyas on either side -->
+      <g id="diyaLeft" transform="translate(70,352)">
+        <path d="M-14,0 Q0,14 14,0 Q10,-4 0,-4 Q-10,-4 -14,0 Z" fill="#c9791f"/>
+        <ellipse class="flame" cx="0" cy="-14" rx="4" ry="10" fill="#ffcf6b"/>
+      </g>
+      <g id="diyaRight" transform="translate(330,352)">
+        <path d="M-14,0 Q0,14 14,0 Q10,-4 0,-4 Q-10,-4 -14,0 Z" fill="#c9791f"/>
+        <ellipse class="flame" cx="0" cy="-14" rx="4" ry="10" fill="#ffcf6b"/>
+      </g>
+
+      <!-- incense smoke -->
+      <path class="smoke" id="smoke1" d="M85,340 C80,300 95,280 85,250 C75,220 90,200 82,175" fill="none" stroke="var(--smoke)" stroke-width="2" opacity="0.35"/>
+      <path class="smoke" id="smoke2" d="M315,340 C320,300 305,280 315,250 C325,220 310,200 318,175" fill="none" stroke="var(--smoke)" stroke-width="2" opacity="0.35"/>
+    </svg>
+    <div class="bell-hint">Tap the bell · press&nbsp;B</div>
+  </div>
+
+  <div class="badges">
+    <span class="badge"><span class="dot"></span>कुलदैवत — Koli &amp; Agri community's guardian</span>
+    <span class="badge"><span class="dot"></span>चैत्र पौर्णिमा यात्रा — Chaitra Purnima Yatra</span>
+    <span class="badge"><span class="dot"></span>Rock-cut steps beside Karla Caves</span>
+    <span class="badge"><span class="dot"></span>Bollywood's first-stop before a release</span>
+    <span class="badge"><span class="dot"></span>नारळ, हळद, गुलाल — coconut, turmeric, gulal</span>
+  </div>
+
+  <!-- ROTATING QUOTES -->
+  <div class="quote-box">
+    <div class="quote-mark">“</div>
+    <div class="quote-text" id="quoteText"></div>
+    <div class="quote-sub" id="quoteSub"></div>
+    <div class="quote-dots" id="quoteDots"></div>
+  </div>
+
+  <!-- MEMORY STRIP -->
+  <div class="memory-strip">
+    <div class="memory-card">
+      <span class="m-icon">🐚</span>
+      <div class="m-title">कोळीवाडा</div>
+      <div class="m-text">Before every boat sails from the Koliwada, a prayer is said in her name.</div>
+    </div>
+    <div class="memory-card">
+      <span class="m-icon">🥁</span>
+      <div class="m-title">ढोल-ताशा</div>
+      <div class="m-text">The yatra climbs the hill to dhol-tasha, gulal in the air, bare feet on warm stone.</div>
+    </div>
+    <div class="memory-card">
+      <span class="m-icon">🥥</span>
+      <div class="m-title">नारळ ओटी</div>
+      <div class="m-text">A coconut, a length of cloth, bangles — the ओटी offered with both hands.</div>
+    </div>
+    <div class="memory-card">
+      <span class="m-icon">🔔</span>
+      <div class="m-title">घंटानाद</div>
+      <div class="m-text">Every visitor rings the bell once on the way in — announcing themselves to the Aai.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="credit">आई एकवीरा की जय · Karla Hill, Lonavala, Maharashtra</footer>
+
+<!-- ---------- MUSIC PLAYER ---------- -->
+<div class="player">
+  <div class="player-top">
+    <div class="disc" id="disc"></div>
+    <div class="track-info">
+      <div class="track-name" id="trackName">Ekveera Aai Bhaktigeet</div>
+      <div class="track-sub" id="trackStatus">Tap play to begin</div>
+    </div>
+    <div class="controls">
+      <button class="ctrl-btn" id="prevBtn" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+      </button>
+      <button class="ctrl-btn play-pause" id="playBtn" aria-label="Play">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="ctrl-btn" id="nextBtn" aria-label="Next">
+        <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zm-9.5 6L15 6v12z"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progress-row">
+    <span class="time" id="curTime">0:00</span>
+    <div class="progress-track" id="progressTrack">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="time" id="durTime">0:00</span>
+  </div>
+  <div class="player-note">आरती संग्रह · playing from the Ekveera Aai playlist</div>
+</div>
+
+<div id="yt-holder"><div id="yt-player"></div></div>
+
+<script>
+/* ============ STARS ============ */
+(function(){
+  const stars = document.getElementById('stars');
+  const n = window.innerWidth < 600 ? 45 : 90;
+  for(let i=0;i<n;i++){
+    const s = document.createElement('div');
+    s.className='star';
+    s.style.left = Math.random()*100+'%';
+    s.style.top = Math.random()*55+'%';
+    s.style.animationDelay = (Math.random()*3)+'s';
+    s.style.width = s.style.height = (Math.random()*1.6+1)+'px';
+    stars.appendChild(s);
+  }
+})();
+
+/* ============ EMBERS (rising diya sparks) ============ */
+(function(){
+  const holder = document.getElementById('embers');
+  function spawn(){
+    const e = document.createElement('div');
+    e.className='ember';
+    const left = Math.random()*100;
+    e.style.left = left+'%';
+    e.style.setProperty('--drift', (Math.random()*60-30)+'px');
+    const dur = 6+Math.random()*6;
+    e.style.animationDuration = dur+'s';
+    holder.appendChild(e);
+    setTimeout(()=>e.remove(), dur*1000+200);
+  }
+  setInterval(spawn, 550);
+  for(let i=0;i<10;i++) setTimeout(spawn, i*300);
+})();
+
+/* ============ GARLAND (marigold border) ============ */
+(function(){
+  const g = document.getElementById('garland-g');
+  const w = 1440;
+  const count = 60;
+  let html='';
+  for(let i=0;i<count;i++){
+    const x = (w/count)*i + 6;
+    const y = 10 + Math.sin(i*0.9)*6;
+    const c = i%3===0 ? '#e8622c' : (i%3===1 ? '#f2b134' : '#c9791f');
+    html += `<circle cx="${x}" cy="${y}" r="7" fill="${c}" opacity="0.85"/>`;
+  }
+  g.innerHTML = html;
+})();
+
+/* ============ ROTATING QUOTES ============ */
+const quotes = [
+  {mr:"आई तुझ्या दारी आलो, मन शांत करूनी जातो", en:"I came to your door, Aai, and my mind found peace"},
+  {mr:"एकवीरा आई की जय", en:"Victory to Mother Ekveera"},
+  {mr:"सुख-दुःखाची सावली, आई माझी एकवीरा", en:"The shade over joy and sorrow alike, my mother Ekveera"},
+  {mr:"होडी सुटताना आईचं नाव घ्यावंच लागतं", en:"Before the boat leaves shore, her name must be spoken"},
+  {mr:"कार्ला डोंगरावर घुमतो ढोल-ताशांचा नाद", en:"On the Karla hill, the dhol-tasha still echoes"},
+  {mr:"नवसाला पावणारी आई", en:"The mother who answers every vow made to her"},
+  {mr:"गुलालात न्हाऊन निघते यात्रा", en:"The yatra emerges bathed in gulal"},
+  {mr:"आई आहे, भिती कशाची?", en:"Aai is here — what is there left to fear?"}
+];
+let qIndex = 0;
+const quoteText = document.getElementById('quoteText');
+const quoteSub = document.getElementById('quoteSub');
+const dotsHolder = document.getElementById('quoteDots');
+
+quotes.forEach((_,i)=>{
+  const d = document.createElement('div');
+  d.className='qdot'+(i===0?' active':'');
+  dotsHolder.appendChild(d);
+});
+
+function showQuote(i){
+  quoteText.classList.remove('show');
+  quoteSub.classList.remove('show');
+  setTimeout(()=>{
+    quoteText.textContent = quotes[i].mr;
+    quoteSub.textContent = quotes[i].en;
+    quoteText.classList.add('show');
+    quoteSub.classList.add('show');
+    [...dotsHolder.children].forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  }, 350);
+}
+showQuote(0);
+setInterval(()=>{
+  qIndex = (qIndex+1) % quotes.length;
+  showQuote(qIndex);
+}, 4500);
+
+/* ============ BELL RING INTERACTION ============ */
+let audioCtx;
+function ringBellSound(){
+  try{
+    audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+    const freqs = [880, 1320, 1760];
+    freqs.forEach((f,i)=>{
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = f;
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.16/(i+1), now+0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now+1.6);
+      osc.connect(gain).connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now+1.7);
+    });
+  }catch(e){ /* audio unsupported, silently skip */ }
+}
+
+const shrine = document.getElementById('shrine');
+const bellLeft = document.getElementById('bellLeft');
+const bellRight = document.getElementById('bellRight');
+const flames = document.querySelectorAll('.flame');
+const halo = document.getElementById('halo');
+
+function ringBell(){
+  ringBellSound();
+
+  bellLeft.style.animation = 'none';
+  bellRight.style.animation = 'none';
+  void bellLeft.offsetWidth;
+  bellLeft.style.animation = 'swing 0.9s ease-in-out 2';
+  bellRight.style.animation = 'swing 0.9s ease-in-out 2 0.05s';
+
+  halo.style.transition = 'r 0.4s ease, opacity 0.4s ease';
+  halo.setAttribute('r', '175');
+  setTimeout(()=> halo.setAttribute('r','150'), 400);
+
+  flames.forEach(f=>{
+    f.style.animation = 'none';
+    void f.offsetWidth;
+    f.style.animation = 'flicker 0.5s ease-in-out 4';
+  });
+
+  // ripple
+  const ripple = document.createElement('div');
+  ripple.className = 'ring-wave active';
+  shrine.appendChild(ripple);
+  ripple.style.left = '50%';
+  ripple.style.top = '38%';
+  ripple.style.transform = 'translate(-50%,-50%)';
+  setTimeout(()=>ripple.remove(), 900);
+
+  // marigold petals
+  const petals = ['🌼','🟠','✿'];
+  for(let i=0;i<14;i++){
+    setTimeout(()=>{
+      const p = document.createElement('div');
+      p.className='petal';
+      p.textContent = petals[Math.floor(Math.random()*petals.length)];
+      p.style.left = (Math.random()*100)+'vw';
+      p.style.animationDuration = (2.4+Math.random()*1.6)+'s';
+      p.style.fontSize = (12+Math.random()*10)+'px';
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(), 4200);
+    }, i*45);
+  }
+}
+
+const styleTag = document.createElement('style');
+styleTag.textContent = `
+@keyframes swing{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(14deg);}
+  50%{transform:rotate(-10deg);}
+  75%{transform:rotate(6deg);}
+}
+@keyframes flicker{
+  0%,100%{transform:scaleY(1) translateX(0);}
+  25%{transform:scaleY(1.25) translateX(1px);}
+  50%{transform:scaleY(0.85) translateX(-1px);}
+  75%{transform:scaleY(1.15) translateX(1px);}
+}
+.flame{transform-origin:center bottom; animation:flicker 2.2s ease-in-out infinite;}
+`;
+document.head.appendChild(styleTag);
+
+shrine.addEventListener('click', ringBell);
+shrine.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); ringBell(); }});
+document.addEventListener('keydown', (e)=>{
+  if(e.key.toLowerCase()==='b'){ ringBell(); }
+});
+
+/* ============ YOUTUBE MUSIC PLAYER ============ */
+const PLAYLIST_ID = 'PLdTkLLCilw9Nd3NYUdvhc1s7_gNlXcwzl';
+let ytPlayer = null;
+let ytReady = false;
+let isPlaying = false;
+
+const playBtn = document.getElementById('playBtn');
+const playIcon = document.getElementById('playIcon');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const trackName = document.getElementById('trackName');
+const trackStatus = document.getElementById('trackStatus');
+const disc = document.getElementById('disc');
+const progressFill = document.getElementById('progressFill');
+const progressTrack = document.getElementById('progressTrack');
+const curTimeEl = document.getElementById('curTime');
+const durTimeEl = document.getElementById('durTime');
+
+const ICON_PLAY = '<path d="M8 5v14l11-7z"/>';
+const ICON_PAUSE = '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
+
+function fmtTime(sec){
+  if(!isFinite(sec) || sec<0) sec=0;
+  const m = Math.floor(sec/60);
+  const s = Math.floor(sec%60);
+  return m+':'+(s<10?'0':'')+s;
+}
+
+function loadYT(){
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.body.appendChild(tag);
+}
+
+window.onYouTubeIframeAPIReady = function(){
+  ytPlayer = new YT.Player('yt-player', {
+    height: '1',
+    width: '1',
+    playerVars:{
+      listType:'playlist',
+      list: PLAYLIST_ID,
+      autoplay: 0,
+      controls: 0
+    },
+    events:{
+      onReady: ()=>{ ytReady = true; trackStatus.textContent='Tap play to begin'; },
+      onStateChange: onPlayerStateChange,
+      onError: ()=>{ trackStatus.textContent='Track unavailable — skipping'; setTimeout(()=>{ if(ytPlayer) ytPlayer.nextVideo(); }, 800); }
+    }
+  });
+};
+
+function onPlayerStateChange(e){
+  if(e.data === YT.PlayerState.PLAYING){
+    isPlaying = true;
+    playIcon.innerHTML = ICON_PAUSE;
+    disc.classList.add('spinning');
+    trackStatus.textContent = 'Now playing';
+    updateTrackInfo();
+  } else if(e.data === YT.PlayerState.PAUSED){
+    isPlaying = false;
+    playIcon.innerHTML = ICON_PLAY;
+    disc.classList.remove('spinning');
+    trackStatus.textContent = 'Paused';
+  } else if(e.data === YT.PlayerState.ENDED){
+    isPlaying = false;
+    playIcon.innerHTML = ICON_PLAY;
+    disc.classList.remove('spinning');
+  } else if(e.data === YT.PlayerState.BUFFERING){
+    trackStatus.textContent = 'Buffering…';
+  }
+}
+
+function updateTrackInfo(){
+  try{
+    const data = ytPlayer.getVideoData();
+    if(data && data.title){
+      trackName.textContent = data.title;
+    }
+  }catch(err){}
+}
+
+playBtn.addEventListener('click', ()=>{
+  if(!ytReady){ loadYT(); trackStatus.textContent='Loading playlist…'; return; }
+  if(isPlaying){
+    ytPlayer.pauseVideo();
+  } else {
+    ytPlayer.playVideo();
+  }
+});
+
+prevBtn.addEventListener('click', ()=>{
+  if(ytReady && ytPlayer.previousVideo){ ytPlayer.previousVideo(); trackStatus.textContent='Now playing'; }
+});
+nextBtn.addEventListener('click', ()=>{
+  if(ytReady && ytPlayer.nextVideo){ ytPlayer.nextVideo(); trackStatus.textContent='Now playing'; }
+});
+
+progressTrack.addEventListener('click', (evt)=>{
+  if(!ytReady || !ytPlayer.getDuration) return;
+  const rect = progressTrack.getBoundingClientRect();
+  const ratio = (evt.clientX - rect.left) / rect.width;
+  const dur = ytPlayer.getDuration();
+  if(dur){ ytPlayer.seekTo(dur*ratio, true); }
+});
+
+setInterval(()=>{
+  if(ytReady && ytPlayer && ytPlayer.getCurrentTime && isPlaying){
+    const cur = ytPlayer.getCurrentTime();
+    const dur = ytPlayer.getDuration();
+    if(dur){
+      progressFill.style.width = (cur/dur*100)+'%';
+      curTimeEl.textContent = fmtTime(cur);
+      durTimeEl.textContent = fmtTime(dur);
+    }
+  }
+}, 500);
+
+// Load the API eagerly so first click is fast, but playback still needs a user gesture.
+loadYT();
+</script>
+</body>
+</html>
